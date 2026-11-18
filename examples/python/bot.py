@@ -55,7 +55,7 @@ def handle_message(message, *args):
 
 @On(bot, "kicked")
 def handle_kicked(*args):
-    # For example "The server is full!" when all 64 places are taken.
+    # For example "The server is full!" when all 32 places are taken.
     print(f"Kicked: {args[0] if args else 'no reason given'}", file=sys.stderr)
 
 

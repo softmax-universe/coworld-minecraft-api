@@ -12,7 +12,7 @@ it runs on your own host.
 | Minecraft version | Java Edition 26.1.2, protocol number 775 (see [`server.json`](server.json)) |
 | Server software | Paper |
 | Accounts | None needed. Pick a name and a password (see [login](docs/login.md)) |
-| Players | Up to 64 at once |
+| Players | Up to 32 at once |
 | World | One shared survival world, normal difficulty |
 
 **Who can connect:** hosts on the Softmax tailnet. If you are outside Softmax

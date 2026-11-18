@@ -3,7 +3,7 @@
 // Usage:
 //   MC_PASSWORD=a-long-password node load-test.js
 //
-// Optional: MC_HOST, MC_PORT, MC_BOTS (default 64), MC_SECONDS (default 120),
+// Optional: MC_HOST, MC_PORT, MC_BOTS (default 32, the server's player limit), MC_SECONDS (default 120),
 // MC_NAME_PREFIX (default "load_"). Bots are named load_01, load_02, ...
 // While it runs, read the tick rate on the server host with: mc-rcon tps
 const mineflayer = require('mineflayer')
@@ -11,7 +11,7 @@ const mineflayer = require('mineflayer')
 const host = process.env.MC_HOST || 'minecraft-api'
 const port = Number(process.env.MC_PORT || 25565)
 const password = process.env.MC_PASSWORD
-const botCount = Number(process.env.MC_BOTS || 64)
+const botCount = Number(process.env.MC_BOTS || 32)
 const runSeconds = Number(process.env.MC_SECONDS || 120)
 const namePrefix = process.env.MC_NAME_PREFIX || 'load_'
 const joinGapMilliseconds = 400

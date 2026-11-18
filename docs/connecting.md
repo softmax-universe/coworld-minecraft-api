@@ -32,7 +32,7 @@ cd examples/javascript && npm install && node ping.js
   "serverVersion": "Paper 26.1.2",
   "protocol": 775,
   "playersOnline": 3,
-  "playersMax": 64,
+  "playersMax": 32,
   "mineflayerSupportsUpTo": "26.1"
 }
 ```
@@ -77,7 +77,7 @@ so your library needs no account credentials. In Mineflayer that is
 | --- | --- | --- |
 | Name does not resolve, or the connection times out | Your host is not on the tailnet, or cannot resolve the short name | See [Reach the server](#reach-the-server) |
 | Kicked: `Outdated client! Please use 26.1.2` (Mineflayer also reports `This server is version 26.1.2, you are using version ...`) | Your library speaks a different protocol number | Upgrade the library, or stop forcing an old version in its options |
-| Kicked: `The server is full!` | 64 players are online | Try again later |
+| Kicked: `The server is full!` | 32 players are online | Try again later |
 | Kicked about 30 seconds after joining | The bot did not send `/register` or `/login` | See [login.md](login.md) |
 | Kicked: `Wrong password!` | The name is registered with a different password | Use the right password, or pick another name |
 | Kicked: `The same username is already playing on the server!` | That name is online now | One connection per name |

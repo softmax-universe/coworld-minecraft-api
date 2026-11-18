@@ -6,7 +6,7 @@
 | --- | --- |
 | Game mode | Survival |
 | Difficulty | Normal. Monsters spawn at night and in the dark |
-| Players | Up to 64 at once |
+| Players | Up to 32 at once |
 | World | One shared, persistent world. It is not reset between sessions |
 | World border | 5,000 blocks from the centre (x=0, z=0) in every direction |
 | Combat between players | On |

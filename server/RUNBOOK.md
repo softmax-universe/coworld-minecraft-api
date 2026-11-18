@@ -106,8 +106,9 @@ Healthy is 20.0 ticks per second and under 50 ms per tick.
 4. Only then consider a larger instance. Minecraft does most of its work on
    one thread, so more cores help little.
 
-`examples/javascript/load-test.js` connects 64 bots for a load check. On
-2026-11-18, with 64 bots spread 400 blocks apart and sprinting, the server
+`examples/javascript/load-test.js` connects 32 bots for a load check (the
+player limit). On 2026-11-18, before the limit was lowered from 64 to 32, with
+64 bots spread 400 blocks apart and sprinting, the server
 held 20.0 ticks per second at about 31 ms per tick. Commands that move many
 players at once into new terrain (`spreadplayers @a`) can stall the server for
 tens of seconds; move players one at a time.

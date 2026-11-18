@@ -8,5 +8,5 @@
   "server_software": "Paper",
   "online_mode": false,
   "login": "AuthMe: /register <password> <password> on first join, /login <password> after",
-  "max_players": 64
+  "max_players": 32
 }
