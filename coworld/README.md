@@ -55,6 +55,12 @@ checkout that has no `origin` remote or no commits. Commit and push to
 The `source-resolves` certification step passes even when the source is not public, but its report then says
 "Public source verified for 0/2 runnables". Read the report: after the repository is public it should say 2/2.
 
+## Registered Coworld
+
+Version 0.1.0 is registered on Softmax as `minecraft-api`
+(`cow_aa7b67fa-c211-415f-b380-3714da411c75`), public, built from commit
+`08a8c24`. Hosted certification passed on 2026-11-18.
+
 ## Upload (needs a Softmax user login)
 
 Upload publishes the images and manifest to Softmax, so only do it on purpose. Use a user credential, not a player
