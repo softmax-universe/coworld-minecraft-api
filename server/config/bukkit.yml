@@ -1,0 +1,20 @@
+# Only the settings this project changes. Bukkit fills in the rest with defaults.
+settings:
+  # The default makes a second join from the same address wait 4 seconds.
+  # One host often runs many bots, so the throttle is off.
+  connection-throttle: -1
+# Mob limits are per player. The defaults (70 monsters, 10 animals per player)
+# put about 6,500 creatures in the world with 64 spread-out players, and the
+# server fell to 8 ticks per second. These lower limits follow the common
+# Paper tuning for large servers.
+spawn-limits:
+  monsters: 20
+  animals: 5
+  water-animals: 2
+  water-ambient: 2
+  water-underground-creature: 2
+  axolotls: 2
+  ambient: 1
+ticks-per:
+  # Try to spawn monsters every 10 ticks instead of every tick.
+  monster-spawns: 10

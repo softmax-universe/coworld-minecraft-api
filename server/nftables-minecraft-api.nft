@@ -1,0 +1,9 @@
+# Drop RCON (the admin console, port 25575) from everything except localhost.
+table inet minecraft_api
+delete table inet minecraft_api
+table inet minecraft_api {
+  chain input {
+    type filter hook input priority 0; policy accept;
+    iifname != "lo" tcp dport 25575 drop
+  }
+}

@@ -1,0 +1,6 @@
+services:
+  minecraft-api:
+    image: coworld-minecraft-api:latest
+    platform: linux/amd64
+    build:
+      context: .

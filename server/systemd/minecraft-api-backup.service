@@ -1,0 +1,7 @@
+[Unit]
+Description=Back up the minecraft-api world
+After=minecraft-api.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/minecraft-api-backup

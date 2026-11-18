@@ -1,0 +1,22 @@
+[Unit]
+Description=minecraft-api Paper server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=mcserver
+Group=mcserver
+WorkingDirectory=/opt/minecraft-api
+ExecStart=/opt/minecraft-api/start.sh
+# Exit code 143 is Java's normal exit after SIGTERM.
+SuccessExitStatus=0 143
+Restart=on-failure
+RestartSec=10
+TimeoutStopSec=90
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+{
+  "name": "minecraft-api",
+  "host": "minecraft-api",
+  "port": 25565,
+  "network": "Softmax tailnet (Tailscale) only",
+  "minecraft_version": "26.1.2",
+  "protocol_version": 775,
+  "server_software": "Paper",
+  "online_mode": false,
+  "login": "AuthMe: /register <password> <password> on first join, /login <password> after",
+  "max_players": 64
+}

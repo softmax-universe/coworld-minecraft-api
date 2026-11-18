@@ -1,0 +1,125 @@
+{
+  "$schema": "https://raw.githubusercontent.com/softmax-universe/coworld/main/src/coworld/coworld_manifest_schema.json",
+  "tags": ["minecraft", "sandbox", "live-server", "placeholder"],
+  "game": {
+    "name": "minecraft-api",
+    "description": "A live Minecraft Java 26.1.2 (Paper) server that bots join as ordinary Minecraft clients at minecraft-api:25565 on the Softmax tailnet. The Coworld episode is only a placeholder that hands players the server's connection details; the real world is the live server.",
+    "owner": "james@softmax.com",
+    "runnable": {
+      "type": "game",
+      "image": "{{MINECRAFT_API_IMAGE}}",
+      "run": ["python", "/app/game/server.py"],
+      "source_url": "https://github.com/softmax-universe/coworld-minecraft-api/tree/main/coworld"
+    },
+    "config_schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tokens", "players"],
+      "properties": {
+        "tokens": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "players": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name"],
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "player_connect_timeout_seconds": {
+          "type": "number",
+          "minimum": 0,
+          "default": 180
+        }
+      }
+    },
+    "results_schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scores"],
+      "properties": {
+        "scores": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "items": {
+            "type": "number",
+            "enum": [0, 1]
+          }
+        }
+      }
+    },
+    "protocols": {
+      "player": {
+        "type": "text",
+        "value": "# minecraft-api placeholder player protocol\n\nThis protocol belongs to the placeholder episode only. It is not how you play. To play, log in to the live Minecraft server as an ordinary Minecraft Java client; see https://github.com/softmax-universe/coworld-minecraft-api/blob/main/docs/connecting.md and https://github.com/softmax-universe/coworld-minecraft-api/blob/main/docs/login.md.\n\n1. Connect to the WebSocket URL in `COWORLD_PLAYER_WS_URL` (the game's `/player?slot=N&token=...` route). A wrong slot or token is refused with HTTP 403.\n2. The game sends one JSON text message: `{\"type\": \"server_info\", \"slot\": N, \"placeholder\": true, \"server\": {...}, \"docs\": \"https://github.com/softmax-universe/coworld-minecraft-api\"}`. `server` is the repository's `server.json`: `name`, `host`, `port`, `network`, `minecraft_version`, `protocol_version`, `server_software`, `online_mode`, `login`, `max_players`.\n3. The game closes the WebSocket normally. The player sends nothing and exits.\n\nThe episode ends when every slot has connected, or after `player_connect_timeout_seconds` (default 180). `scores[N]` is 1 if slot N connected and received the message, otherwise 0."
+      },
+      "global": {
+        "type": "text",
+        "value": "# minecraft-api placeholder global protocol\n\nConnect to the `/global` WebSocket (browser page: `GET /client/global`). The game sends one JSON text message on connect and one more when the episode ends: `{\"type\": \"state\", \"placeholder\": true, \"server\": {...}, \"docs\": \"...\", \"player_names\": [...], \"scores\": [...], \"done\": false}`. `server` is the repository's `server.json`, `scores[N]` is 1 once slot N has connected, and `done` is true in the last message. Viewers send nothing. There is no game state to watch: the real world is the live Minecraft server."
+      }
+    },
+    "docs": {
+      "readme": {
+        "type": "text",
+        "value": "# minecraft-api\n\n**The Coworld episode is a placeholder.** The real world is a live Minecraft Java server (Paper 26.1.2, protocol 775) at `minecraft-api:25565`, reachable only on the Softmax tailnet (Tailscale). Bots join it as ordinary Minecraft clients. A live, persistent Minecraft server cannot run as a Coworld episode, so this package exists only to register the Coworld.\n\n## How to play\n\nEverything you need is in the public repository, https://github.com/softmax-universe/coworld-minecraft-api:\n\n- [README.md](https://github.com/softmax-universe/coworld-minecraft-api/blob/main/README.md): what the server is and how to start.\n- [docs/connecting.md](https://github.com/softmax-universe/coworld-minecraft-api/blob/main/docs/connecting.md): reaching `minecraft-api:25565`.\n- [docs/login.md](https://github.com/softmax-universe/coworld-minecraft-api/blob/main/docs/login.md): registering and logging in (AuthMe).\n- [docs/client-libraries.md](https://github.com/softmax-universe/coworld-minecraft-api/blob/main/docs/client-libraries.md): Minecraft client libraries for bots.\n\n## What the placeholder episode does\n\nThe game container accepts each player connection, sends the player the contents of the repository's `server.json` (the live server's address, Minecraft version, and protocol number), and closes the connection. When every slot has connected, or the connect timeout passes, it reports a score of 1 for each player slot that connected and 0 for each that did not. The bundled player connects, logs what it received, and exits. Scores say nothing about Minecraft skill."
+      }
+    }
+  },
+  "player": [
+    {
+      "id": "info-reader",
+      "name": "Info Reader",
+      "type": "player",
+      "image": "{{MINECRAFT_API_IMAGE}}",
+      "run": ["python", "/app/player/player.py"],
+      "source_url": "https://github.com/softmax-universe/coworld-minecraft-api/tree/main/coworld",
+      "description": "Placeholder player: connects, logs the live Minecraft server's connection details, and exits. It does not play Minecraft."
+    }
+  ],
+  "variants": [
+    {
+      "id": "info",
+      "name": "Server info",
+      "game_config": {
+        "players": [
+          {
+            "name": "Info Reader"
+          }
+        ]
+      },
+      "description": "Placeholder episode: one player receives the live Minecraft server's connection details and the episode ends."
+    }
+  ],
+  "certification": {
+    "game_config": {
+      "players": [
+        {
+          "name": "Info Reader"
+        }
+      ]
+    },
+    "players": [
+      {
+        "player_id": "info-reader"
+      }
+    ]
+  }
+}

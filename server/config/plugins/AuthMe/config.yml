@@ -1,0 +1,33 @@
+# Only the settings this project changes. AuthMe fills in the rest with defaults.
+settings:
+  registration:
+    enabled: true
+    # A player that is not registered must register before it can play.
+    force: true
+    dialog:
+      # AuthMe can show a pop-up login form. Bot libraries cannot answer it, so
+      # both forms are off and everyone uses the /register and /login commands.
+      preJoin:
+        enable: false
+      postJoin:
+        enable: false
+  restrictions:
+    # Seconds a player has to /login or /register before it is kicked.
+    loginTimeout: 30
+    registerTimeout: 30
+    # 0 means no limit on registered names per address. AuthMe counts every
+    # name an address has ever registered, so any limit would lock out a host
+    # that runs or develops many bots. The tailnet decides who can connect.
+    maxRegPerIp: 0
+    allowMovement: false
+    # Keep the player where it logged out instead of moving it to spawn.
+    teleportUnAuthedToSpawn: false
+  security:
+    minPasswordLength: 8
+  sessions:
+    # Every join needs /login. No address-based sessions.
+    enabled: false
+Protection:
+  # AuthMe's "AntiBot" mode blocks all joins for 10 minutes after 10 players
+  # join within 5 seconds. Every player here is a bot, so it is off.
+  enableAntiBot: false

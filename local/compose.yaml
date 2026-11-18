@@ -1,0 +1,20 @@
+# Run a local copy of the minecraft-api server on localhost:25565.
+#   docker compose -f local/compose.yaml up --build
+# The world and registered names live in the "minecraft-api-data" volume.
+# To start over:  docker compose -f local/compose.yaml down --volumes
+services:
+  minecraft-api:
+    build:
+      context: ..
+      dockerfile: local/Dockerfile
+    ports:
+      - "127.0.0.1:25565:25565"
+    environment:
+      # The EC2 box uses 16G. 2G is enough for a few local bots.
+      MC_HEAP: 2G
+    volumes:
+      - minecraft-api-data:/opt/minecraft-api
+    stop_grace_period: 60s
+
+volumes:
+  minecraft-api-data:

@@ -1,0 +1,3 @@
+# JSPyBridge: runs the real Mineflayer in a Node.js process and exposes it to Python.
+javascript==1!1.2.6
+mcstatus==15.0.0

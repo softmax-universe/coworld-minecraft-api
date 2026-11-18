@@ -1,0 +1,17 @@
+{
+  "name": "minecraft-api-example-bot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Example Mineflayer bot for the Softmax minecraft-api server",
+  "type": "commonjs",
+  "scripts": {
+    "ping": "node ping.js",
+    "start": "node bot.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "mineflayer": "^4.39.0"
+  }
+}
