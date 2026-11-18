@@ -57,9 +57,17 @@ The `source-resolves` certification step passes even when the source is not publ
 
 ## Registered Coworld
 
-Version 0.1.0 is registered on Softmax as `minecraft-api`
-(`cow_aa7b67fa-c211-415f-b380-3714da411c75`), public, built from commit
-`08a8c24`. Hosted certification passed on 2026-11-18.
+The Coworld is registered on Softmax as `minecraft-api`, public. Each upload
+gets its own id:
+
+| Version | Id | Built from | Notes |
+| --- | --- | --- | --- |
+| 0.1.1 (canonical) | `cow_d6abf14f-c510-422b-9342-7a2ee5d72f5e` | `33bd850` | Player limit 32. Hosted certification passed 2026-11-18 |
+| 0.1.0 | `cow_aa7b67fa-c211-415f-b380-3714da411c75` | `08a8c24` | First upload. Player limit 64 |
+
+Upload a new version whenever `server.json` changes, so the placeholder
+episode reports the live server's real settings. If hosted certification fails
+with a `503` from the platform, run `coworld retry-certification <id>`.
 
 ## Upload (needs a Softmax user login)
 
