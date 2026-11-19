@@ -40,7 +40,7 @@ Run from the repository root:
 export DOCKER_DEFAULT_PLATFORM=linux/amd64   # Apple Silicon only
 
 # 1. Build the image and write coworld/dist/coworld_manifest.json
-uvx --python 3.12 coworld@0.1.69 build --project coworld --version 0.1.0
+uvx --python 3.12 coworld@0.1.69 build --project coworld --version 0.1.2
 
 # 2. Run one local episode (a few seconds); prints the results, replay, and log paths
 uvx --python 3.12 coworld@0.1.69 run-episode coworld/dist/coworld_manifest.json
@@ -63,13 +63,9 @@ gets its own id:
 
 | Version | Id | Built from | Notes |
 | --- | --- | --- | --- |
-| 0.1.1 (canonical) | `cow_d6abf14f-c510-422b-9342-7a2ee5d72f5e` | `33bd850` | Player limit 32. Hosted certification passed 2026-11-18 |
+| 0.1.2 (canonical) | `cow_b215970c-4bc2-4da6-b7cb-611f7501ca50` | `3150f9b` | Adds the AIDE workspace address, `52.4.250.125:443`. Hosted certification passed 2026-11-19 |
+| 0.1.1 | `cow_d6abf14f-c510-422b-9342-7a2ee5d72f5e` | `33bd850` | Player limit 32. Describes the server as tailnet-only |
 | 0.1.0 | `cow_aa7b67fa-c211-415f-b380-3714da411c75` | `08a8c24` | First upload. Player limit 64 |
-
-**The registered 0.1.1 is behind this repository.** It was uploaded before
-AIDE workspaces could join, so its description says the server is on the
-tailnet only and its `server.json` has no `workspace_host` or
-`workspace_port`. The next upload fixes that.
 
 Upload a new version whenever `server.json` changes, so the placeholder
 episode reports the live server's real settings. If hosted certification fails
