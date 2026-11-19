@@ -133,7 +133,7 @@ The host joined the tailnet as a personal device, not a tagged one. Its
 Tailscale key expires (180 days by default) unless a tailnet admin disables
 key expiry for the device in the Tailscale admin console. If the host drops
 off the tailnet, run `sudo tailscale up --ssh --hostname=minecraft-api` on it
-and approve the login. With no inbound ports open, getting to the host then
+and approve the login. With no SSH port open to the internet, getting to the host then
 needs a temporary SSH rule in its security group.
 
 ## Secrets
