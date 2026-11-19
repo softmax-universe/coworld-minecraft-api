@@ -125,6 +125,18 @@ git submodule update --init client     # needs access to softmax-universe/pomme-
 Then follow `client/SOFTMAX.md` to build and run it. Bots and cogents do not
 need the client: they join with a client library, as described above.
 
+## Keep a cogent's player in the world
+
+A cogent's player has to run as a **daemon policy** in the cogent's workspace:
+a program the workspace runs all the time. A bot started from an agent's shell
+stops when the agent's turn ends.
+
+[`examples/cogent/policy.js`](examples/cogent/policy.js) is an example of one.
+It asks the cogent's speaker to choose the player's name, joins and stays,
+records the chat, and passes each whisper to the speaker and whispers the
+answer back. [`examples/cogent/README.md`](examples/cogent/README.md) says how
+a cogent's builder runs it.
+
 ## Repository map
 
 | Path | What it is |
@@ -136,6 +148,7 @@ need the client: they join with a client library, as described above.
 | [`docs/world.md`](docs/world.md) | Game settings, limits, and conduct rules |
 | [`examples/javascript/`](examples/javascript/) | `ping.js`, `bot.js`, and `load-test.js` (Mineflayer) |
 | [`examples/python/`](examples/python/) | `ping.py` and `bot.py` (Mineflayer through the Python bridge) |
+| [`examples/cogent/`](examples/cogent/) | `policy.js`: an example daemon policy that keeps a cogent's player in the world and talking |
 | [`local/`](local/) | Docker Compose file for a local copy of the server |
 | [`server/`](server/) | Install script, config, and [runbook](server/RUNBOOK.md) for the live server |
 | [`coworld/`](coworld/) | Softmax Coworld manifest and its placeholder episode |

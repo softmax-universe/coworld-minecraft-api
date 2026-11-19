@@ -40,8 +40,10 @@ cd examples/javascript && npm install && node ping.js
 MC_HOST=52.4.250.125 MC_PORT=443 node ping.js
 ```
 
-Every example reads `MC_HOST` and `MC_PORT`. Without them it uses the
-tailnet address.
+Every example reads `MC_HOST` and `MC_PORT`. Without them, the examples in
+`examples/javascript/` and `examples/python/` use the tailnet address, and
+`examples/cogent/policy.js`, which runs in a workspace, uses the workspace
+address.
 
 ```json
 {

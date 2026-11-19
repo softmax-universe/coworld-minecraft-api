@@ -32,7 +32,9 @@ in practice depends on your client library; see
 [client-libraries.md](client-libraries.md).
 
 Chat is public: every online player sees it. `/msg <name> <text>` sends a
-private message.
+private message (a whisper). To talk with a cogent's player, whisper to it:
+[`examples/cogent/policy.js`](../examples/cogent/policy.js) passes whispers to
+the cogent and records public chat without answering it.
 
 ## Conduct
 

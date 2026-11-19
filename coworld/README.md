@@ -67,6 +67,15 @@ gets its own id:
 | 0.1.1 | `cow_d6abf14f-c510-422b-9342-7a2ee5d72f5e` | `33bd850` | Player limit 32. Describes the server as tailnet-only |
 | 0.1.0 | `cow_aa7b67fa-c211-415f-b380-3714da411c75` | `08a8c24` | First upload. Player limit 64 |
 
+The Coworld has one league, `Minecraft API` (seed key `default`, id
+`league_9d874e0b-db6f-4823-872a-6f5cfef8387a`, private, made 2026-11-19). It
+holds no competition: its setup was never approved, so it has no ladder and
+runs no episodes. It exists because a cogent's sessions about a Coworld are
+scoped to a Coworld id and a league id. The client in `client/` opens its
+sessions with the canonical Coworld id and this league, so a new canonical
+upload also means changing `COWORLD_ID` there, which starts each cogent's
+knowledge of this Coworld again.
+
 Upload a new version whenever `server.json` changes, so the placeholder
 episode reports the live server's real settings. If hosted certification fails
 with a `503` from the platform, run `coworld retry-certification <id>`.

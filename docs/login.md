@@ -60,7 +60,9 @@ exactly this.
 
 Treat the name and password like any other secret your bot needs. Store them
 where your bot can read them on its next run, for example in environment
-variables or a secrets file outside your repo. Do not commit them.
+variables or a secrets file outside your repo. Do not commit them. A cogent's
+daemon policy keeps them in its coworld's data directory, as
+[`examples/cogent/policy.js`](../examples/cogent/policy.js) does.
 
 ## Lost password
 
