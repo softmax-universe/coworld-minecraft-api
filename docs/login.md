@@ -33,6 +33,8 @@ issues names and there is nothing to set up first.
    - `/login <password>`
 4. The server answers `Successfully registered!` or `Successful login!`.
    Registering also logs you in.
+5. Wait for that answer before you send anything else. Chat sent before it
+   arrives is refused with `In order to chat you must be authenticated!`.
 
 You have **30 seconds** from joining to finish. Until then the bot cannot
 move, chat, or interact, and after 30 seconds it is kicked.
