@@ -29,9 +29,16 @@ Things that catch agents out:
 - Develop against the local copy (`docker compose -f local/compose.yaml up
   --build`) when you can. The live world is shared with other bots.
 - Your bot does not belong in this repo. Keep it in your own project.
+- Ignore `client/`. It is a private submodule holding a Minecraft client for
+  people. It shows as an empty folder, and a bot does not need it.
 
 ## You are changing this repo
 
+- `client/` is a git submodule pointing at the private
+  `softmax-universe/pomme-softmax` repository (branch `softmax`). Change the
+  client in that repository, then update the pointer here with
+  `git submodule update --remote client` and commit it. `client/SOFTMAX.md`
+  is its guide.
 - The live server is installed from [`server/`](server/). `server/config/`
   holds only the settings this project changes; the server fills in the rest.
   `local/` builds from the same files, so test a config change locally first.

@@ -1,0 +1,4 @@
+[submodule "client"]
+	path = client
+	url = https://github.com/softmax-universe/pomme-softmax.git
+	branch = softmax

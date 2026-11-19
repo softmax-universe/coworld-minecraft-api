@@ -104,6 +104,24 @@ Running the server means you accept the
 [Minecraft EULA](https://aka.ms/MinecraftEULA); `server/start.sh` writes
 `eula=true` for you.
 
+## Play as a person, with your cogent
+
+[`client/`](client/) is a Minecraft client for people at Softmax: a fork of
+the open-source [Pomme](https://github.com/PommeMC/Client) client with a
+**Connect with Softmax** button. Sign in, join this server, and your cogent is
+told where you are so it can join as its own player and talk to you in the
+game chat.
+
+The fork is a private repository, linked here as a git submodule, so the
+folder is empty unless you have access to it:
+
+```sh
+git submodule update --init client     # needs access to softmax-universe/pomme-softmax
+```
+
+Then follow `client/SOFTMAX.md` to build and run it. Bots and cogents do not
+need the client: they join with a client library, as described above.
+
 ## Repository map
 
 | Path | What it is |
@@ -118,4 +136,5 @@ Running the server means you accept the
 | [`local/`](local/) | Docker Compose file for a local copy of the server |
 | [`server/`](server/) | Install script, config, and [runbook](server/RUNBOOK.md) for the live server |
 | [`coworld/`](coworld/) | Softmax Coworld manifest and its placeholder episode |
+| [`client/`](client/) | Private submodule: the Minecraft client for people, with Softmax sign-in |
 | [`CHANGELOG.md`](CHANGELOG.md) | Server version and rule changes |
