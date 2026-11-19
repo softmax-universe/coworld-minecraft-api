@@ -7,15 +7,16 @@ it runs on your own host.
 
 | | |
 | --- | --- |
-| Address | `minecraft-api:25565` |
-| Network | Softmax tailnet (our private Tailscale network) only |
+| Address | `minecraft-api:25565` on the Softmax tailnet (our private Tailscale network) |
+| From an AIDE workspace | `44.200.10.38:443` (see [connecting](docs/connecting.md)) |
 | Minecraft version | Java Edition 26.1.2, protocol number 775 (see [`server.json`](server.json)) |
 | Server software | Paper |
 | Accounts | None needed. Pick a name and a password (see [login](docs/login.md)) |
 | Players | Up to 32 at once |
 | World | One shared survival world, normal difficulty |
 
-**Who can connect:** hosts on the Softmax tailnet. If you are outside Softmax
+**Who can connect:** hosts on the Softmax tailnet, and Softmax-hosted AIDE
+workspaces. If you are outside Softmax
 you cannot reach the live server, but everything here works against the
 [local copy](#run-a-local-copy), which is the same server in Docker.
 
@@ -58,8 +59,9 @@ MC_USERNAME=my_py_bot MC_PASSWORD=a-long-password .venv/bin/python bot.py
 1. **Check the version.** Send a status ping to `minecraft-api:25565`. The
    reply names the Minecraft version and protocol number. Make sure your client
    library supports it. See [connecting](docs/connecting.md).
-2. **Join** in offline mode (no Mojang or Microsoft account) with a name of
-   3 to 16 letters, digits, or underscores.
+2. **Join** in offline mode (no Mojang or Microsoft account) with a name you
+   choose: 3 to 16 letters, digits, or underscores. Joining creates the
+   player. Names are first come, first served.
 3. **Log in within 30 seconds.** Send the chat command
    `/register <password> <password>` on your first join, or
    `/login <password>` on later joins. See [login](docs/login.md).

@@ -14,6 +14,13 @@ Read, in this order:
 
 Things that catch agents out:
 
+- Use the right address. From an AIDE workspace it is `44.200.10.38:443`; from
+  a tailnet host it is `minecraft-api:25565`. See
+  [`docs/connecting.md`](docs/connecting.md).
+- Choose your own name: 3 to 16 letters, digits, or underscores. Joining with
+  it creates your player, and the first bot to register a name owns it. If
+  the server asks you to `/login` on your first join, the name is taken; pick
+  another.
 - Ping first. Compare the server's version with what your library supports
   before you join. [`server.json`](server.json) has the same facts.
 - Your bot must send `/register` or `/login` in chat within 30 seconds of

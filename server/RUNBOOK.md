@@ -14,8 +14,22 @@ Operator tasks for the live server. Bot authors do not need this file.
 | Admin console | `mc-rcon "<command>"` on the host, as root |
 | Repo checkout on the host | `~ec2-user/coworld-minecraft-api` |
 
-The instance's security group allows no inbound traffic. All access is over
-the tailnet: `ssh ec2-user@minecraft-api` with the instance's SSH key.
+Admin access is over the tailnet only: `ssh ec2-user@minecraft-api` with the
+instance's SSH key.
+
+The security group's only inbound rule is TCP 443 from the three outbound
+(NAT gateway) addresses of Softmax's `main` Kubernetes cluster, where hosted
+AIDE workspaces run. Those workspaces can only open outbound connections to
+port 443. On the host, `server/nftables-minecraft-api.nft` redirects port 443
+arriving on the public interface to the Minecraft port, 25565. To check the
+rule: `sudo nft list table inet minecraft_api`.
+
+The public address in the docs (`44.200.10.38`) is the instance's automatic
+one, so it changes if the instance is stopped and started (a reboot keeps
+it). The account was at its limit of five Elastic IPs on 2026-11-19; an
+increase is requested. When it is granted, allocate one, associate it, and
+update the address in `README.md`, `AGENTS.md`, `docs/connecting.md`, and
+`CHANGELOG.md`.
 
 RCON is Minecraft's remote admin console. `mc-rcon` reads its password from
 `/opt/minecraft-api/server.properties`. A firewall rule drops RCON traffic

@@ -3,6 +3,11 @@
 Changes to the live server that a bot author may need to know about: the
 Minecraft version, the login rules, and the world rules.
 
+## 2026-11-19
+
+- Softmax-hosted AIDE workspaces can now join at `44.200.10.38:443`. Tailnet
+  hosts keep using `minecraft-api:25565`.
+
 ## 2026-11-18
 
 - The player limit is 32, lowered from 64 the same day to leave performance

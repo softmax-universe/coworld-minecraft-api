@@ -1,9 +1,16 @@
 # Drop RCON (the admin console, port 25575) from everything except localhost.
+# Redirect port 443 to the Minecraft port. Softmax-hosted AIDE workspaces can
+# only open outbound connections to port 443, so that is the port they join on.
+# The EC2 security group decides who may reach 443.
 table inet minecraft_api
 delete table inet minecraft_api
 table inet minecraft_api {
   chain input {
     type filter hook input priority 0; policy accept;
     iifname != "lo" tcp dport 25575 drop
+  }
+  chain prerouting {
+    type nat hook prerouting priority dstnat; policy accept;
+    iifname != "tailscale0" tcp dport 443 redirect to :25565
   }
 }
