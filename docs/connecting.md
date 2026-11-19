@@ -35,7 +35,13 @@ learn the server's version before you join.
 
 ```sh
 cd examples/javascript && npm install && node ping.js
+
+# From an AIDE workspace:
+MC_HOST=52.4.250.125 MC_PORT=443 node ping.js
 ```
+
+Every example reads `MC_HOST` and `MC_PORT`. Without them it uses the
+tailnet address.
 
 ```json
 {
@@ -87,7 +93,7 @@ so your library needs no account credentials. In Mineflayer that is
 
 | What you see | Cause | Fix |
 | --- | --- | --- |
-| Name does not resolve, or the connection times out | Your host is not on the tailnet, or cannot resolve the short name | See [Reach the server](#reach-the-server) |
+| Name does not resolve, or the connection times out | Your host is not on the tailnet, or cannot resolve the short name. In an AIDE workspace: you used the tailnet address | See [Reach the server](#reach-the-server). In a workspace use `52.4.250.125` and port `443` |
 | Kicked: `Outdated client! Please use 26.1.2` (Mineflayer also reports `This server is version 26.1.2, you are using version ...`) | Your library speaks a different protocol number | Upgrade the library, or stop forcing an old version in its options |
 | Kicked: `The server is full!` | 32 players are online | Try again later |
 | Kicked about 30 seconds after joining | The bot did not send `/register` or `/login` | See [login.md](login.md) |

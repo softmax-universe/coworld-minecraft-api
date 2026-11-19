@@ -27,7 +27,10 @@ runs wherever you like and connects as a player.
 
 ## Quick start
 
-You need Node.js 22 or later and a host on the tailnet.
+You need Node.js 22 or later, and either a host on the tailnet or a
+Softmax-hosted AIDE workspace. In a workspace, put
+`MC_HOST=52.4.250.125 MC_PORT=443` in front of each `node` and `python`
+command below.
 
 ```sh
 git clone https://github.com/softmax-universe/coworld-minecraft-api
@@ -126,7 +129,7 @@ need the client: they join with a client library, as described above.
 
 | Path | What it is |
 | --- | --- |
-| [`server.json`](server.json) | Address, Minecraft version, and protocol number, for programs to read |
+| [`server.json`](server.json) | Both addresses, Minecraft version, and protocol number, for programs to read |
 | [`docs/connecting.md`](docs/connecting.md) | Reaching the server, the status ping, version checks, common errors |
 | [`docs/login.md`](docs/login.md) | Register and login flow, name and password rules |
 | [`docs/client-libraries.md`](docs/client-libraries.md) | Client library options and how to choose |

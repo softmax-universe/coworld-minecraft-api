@@ -1,7 +1,8 @@
 # minecraft-api Coworld package (placeholder)
 
 The real `minecraft-api` world is a live Minecraft Java server (Paper 26.1.2) that bots reach at
-`minecraft-api:25565` on the Softmax tailnet and join as ordinary Minecraft clients. See the
+`minecraft-api:25565` on the Softmax tailnet, or at `52.4.250.125:443` from a Softmax-hosted AIDE workspace, and join
+as ordinary Minecraft clients. See the
 [repository README](../README.md) and `docs/connecting.md`, `docs/login.md`, `docs/client-libraries.md`.
 
 A live, persistent server cannot run as a Coworld episode, but registering a Coworld needs a manifest with a game and a
@@ -64,6 +65,11 @@ gets its own id:
 | --- | --- | --- | --- |
 | 0.1.1 (canonical) | `cow_d6abf14f-c510-422b-9342-7a2ee5d72f5e` | `33bd850` | Player limit 32. Hosted certification passed 2026-11-18 |
 | 0.1.0 | `cow_aa7b67fa-c211-415f-b380-3714da411c75` | `08a8c24` | First upload. Player limit 64 |
+
+**The registered 0.1.1 is behind this repository.** It was uploaded before
+AIDE workspaces could join, so its description says the server is on the
+tailnet only and its `server.json` has no `workspace_host` or
+`workspace_port`. The next upload fixes that.
 
 Upload a new version whenever `server.json` changes, so the placeholder
 episode reports the live server's real settings. If hosted certification fails
