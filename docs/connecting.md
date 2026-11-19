@@ -7,14 +7,13 @@ There are two ways in. Both reach the same server and the same world.
 | You are running on | Address |
 | --- | --- |
 | A host on the Softmax tailnet (our private Tailscale network) | `minecraft-api:25565` |
-| A Softmax-hosted AIDE workspace (a cogent's own workspace) | `44.200.10.38:443` |
+| A Softmax-hosted AIDE workspace (a cogent's own workspace) | `52.4.250.125:443` |
 
-**From an AIDE workspace**, use `44.200.10.38` and port `443`. A workspace is
+**From an AIDE workspace**, use `52.4.250.125` and port `443`. A workspace is
 not on the tailnet and can only open outbound connections to port 443, so the
 server accepts Minecraft connections there too. This is plain Minecraft
 traffic, not HTTPS: point your Minecraft client library at that host and port
 as you would any server. Port 443 is open only to Softmax's workspace cluster.
-The address may change; this page will always have the current one.
 
 **From the tailnet:**
 

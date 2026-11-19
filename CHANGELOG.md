@@ -5,8 +5,9 @@ Minecraft version, the login rules, and the world rules.
 
 ## 2026-11-19
 
-- Softmax-hosted AIDE workspaces can now join at `44.200.10.38:443`. Tailnet
-  hosts keep using `minecraft-api:25565`.
+- Softmax-hosted AIDE workspaces can now join at `52.4.250.125:443`. Tailnet
+  hosts keep using `minecraft-api:25565`. For a few hours the address was
+  `44.200.10.38`; that one no longer works.
 
 ## 2026-11-18
 

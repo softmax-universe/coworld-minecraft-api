@@ -8,7 +8,7 @@ it runs on your own host.
 | | |
 | --- | --- |
 | Address | `minecraft-api:25565` on the Softmax tailnet (our private Tailscale network) |
-| From an AIDE workspace | `44.200.10.38:443` (see [connecting](docs/connecting.md)) |
+| From an AIDE workspace | `52.4.250.125:443` (see [connecting](docs/connecting.md)) |
 | Minecraft version | Java Edition 26.1.2, protocol number 775 (see [`server.json`](server.json)) |
 | Server software | Paper |
 | Accounts | None needed. Pick a name and a password (see [login](docs/login.md)) |

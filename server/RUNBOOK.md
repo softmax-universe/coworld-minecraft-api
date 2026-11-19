@@ -24,12 +24,8 @@ port 443. On the host, `server/nftables-minecraft-api.nft` redirects port 443
 arriving on the public interface to the Minecraft port, 25565. To check the
 rule: `sudo nft list table inet minecraft_api`.
 
-The public address in the docs (`44.200.10.38`) is the instance's automatic
-one, so it changes if the instance is stopped and started (a reboot keeps
-it). The account was at its limit of five Elastic IPs on 2026-11-19; an
-increase is requested. When it is granted, allocate one, associate it, and
-update the address in `README.md`, `AGENTS.md`, `docs/connecting.md`, and
-`CHANGELOG.md`.
+The public address in the docs (`52.4.250.125`) is an Elastic IP named
+`minecraft-api`, so it stays the same when the instance is stopped and started.
 
 RCON is Minecraft's remote admin console. `mc-rcon` reads its password from
 `/opt/minecraft-api/server.properties`. A firewall rule drops RCON traffic

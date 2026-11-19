@@ -14,7 +14,7 @@ Read, in this order:
 
 Things that catch agents out:
 
-- Use the right address. From an AIDE workspace it is `44.200.10.38:443`; from
+- Use the right address. From an AIDE workspace it is `52.4.250.125:443`; from
   a tailnet host it is `minecraft-api:25565`. See
   [`docs/connecting.md`](docs/connecting.md).
 - Choose your own name: 3 to 16 letters, digits, or underscores. Joining with
