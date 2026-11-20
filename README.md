@@ -132,10 +132,13 @@ a program the workspace runs all the time. A bot started from an agent's shell
 stops when the agent's turn ends.
 
 [`examples/cogent/policy.js`](examples/cogent/policy.js) is an example of one.
-It asks the cogent's speaker to choose the player's name, joins and stays,
-records the chat, and passes each whisper to the speaker and whispers the
-answer back. [`examples/cogent/README.md`](examples/cogent/README.md) says how
-a cogent's builder runs it.
+The player is the cogent's body in the world, not a character it plays. The
+program asks the cogent's speaker to choose the player's name, joins and
+stays, tells the speaker all that the player hears and where it is, and says
+what the speaker answers. It takes the user's player name, so the cogent
+knows which player is its user.
+[`examples/cogent/README.md`](examples/cogent/README.md) says how a cogent's
+builder runs it.
 
 ## Repository map
 

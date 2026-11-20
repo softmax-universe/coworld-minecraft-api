@@ -9,9 +9,16 @@ cogent should have its own player in this world.
 
 - Start from [`examples/cogent/`](examples/cogent/): `policy.js` is an example
   **daemon policy** for this coworld, and its `README.md` says how to run it.
-  It asks the speaker to choose the player's name, joins and stays, records
-  the chat, and passes each whisper to the speaker and whispers the answer
-  back. Copy it into your own workspace, or use it as a guide for your own.
+  It asks the speaker to choose the player's name, joins and stays, tells
+  the speaker all that the player hears and where it is, and says what the
+  speaker answers. Copy it into your own workspace, or use it as a guide for
+  your own.
+- The player is the cogent's body in this world, not a character it plays.
+  Whatever you build, tell the speaker so in the words your policy gives it,
+  and give it what it needs to know where it is and what has happened.
+- Ask the user for their Minecraft player name, and write it into the policy
+  (`USER_PLAYER_NAME` in the example), so the cogent knows which player is
+  its user.
 - A player must be a daemon policy. A bot you start from your shell stops
   when your turn ends, and nothing it hears reaches the cogent.
 - This coworld takes no submitted policies. The player runs in the cogent's
